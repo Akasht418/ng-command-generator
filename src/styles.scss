@@ -79,6 +79,7 @@ footer {
 li{
   text-decoration: none;
   padding-bottom: 10px;
+  color: rgb(101, 101, 244);
 }
 
 textarea{
@@ -87,4 +88,9 @@ textarea{
   color: white;
   width: 430px;
   height: 130px;
+}
+
+
+.clickable{
+  cursor: pointer
 }
