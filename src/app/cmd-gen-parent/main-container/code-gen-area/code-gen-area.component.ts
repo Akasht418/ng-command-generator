@@ -18,14 +18,7 @@ export class CodeGenAreaComponent implements OnInit {
       css:[]
     });
   }
-
-  @ViewChild('textarea') myTextareaRef: any;
-
-  @HostListener('copy', ['$event'])
-  onCopy(event: ClipboardEvent) {
-    event.preventDefault();
-  }
-
+  
   ngOnInit(): void {}
   @Input() cmd: any;
 
