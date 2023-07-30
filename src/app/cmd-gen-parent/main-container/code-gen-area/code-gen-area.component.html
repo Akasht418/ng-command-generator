@@ -1,23 +1,21 @@
 <div [formGroup]="form" style="margin-top: 20px; border: 1px solid black; width: 500px; height: 80%;">
     <div>
-        <input
-            [ngStyle]="(form.get('name')?.value?.length==null) ? {'border-color':'red'}:{}"
-            type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name"
-            autocomplete="nope" required="true">
+        <input type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name"
+            autocomplete="nope">
         <!-- <div class="error" *ngIf="form">*Name is required</div> -->
         <button (click)="generate()">Generate</button>
     </div>
 
     <div class="more-actions">
         <div class="action">
-            <input type="checkbox" value="dryRun"><span class="small">Dry run</span>
+            <input type="checkbox" formControlName="dryRun" value="dryRun"><span class="small">Dry run</span>
         </div>
         <div class="action">
-            <input type="checkbox" value="dryRun"><span class="small">Route Module</span>
+            <input type="checkbox" formControlName="routing" value="routing"><span class="small">Routing</span>
         </div>
         <div class="action">
-            <input type="checkbox" value="dryRun"><span class="small">CSS</span>
+            <input type="checkbox" formControlName="css" value="css"><span class="small">CSS</span>
         </div>
     </div>
-    <textarea formControlName="code"></textarea>
+    <textarea #textarea formControlName="code" autocomplete="nope" [disabled]="true"></textarea>
 </div>

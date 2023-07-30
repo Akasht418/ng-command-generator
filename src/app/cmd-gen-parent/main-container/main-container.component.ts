@@ -13,7 +13,6 @@ export class MainContainerComponent {
 
   cmd = '';
   selectType(type: string) {
-
     if (type == 'new') {
       this.cmd = 'ng new';
     } else if (type == 'component') {
@@ -24,6 +23,7 @@ export class MainContainerComponent {
       this.cmd = 'ng generate library';
     }
     this.childForm.resetForm();
+
   }
   
 }
