@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ export class CodeGenAreaComponent implements OnInit {
   public form: FormGroup;
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: [], 
+      name: [,Validators.required], 
       code: [],
     });
   } 

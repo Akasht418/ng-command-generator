@@ -1,6 +1,13 @@
 <div [formGroup]="form" style="margin-top: 20px; border: 1px solid black; width: 500px; height: 80%;">
-    <input type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name" autocomplete="nope">
-    <button (click)="generate()">Generate</button>
+    <div>
+        <input
+            [ngStyle]="(form.get('name')?.value?.length==null) ? {'border-color':'red'}:{}"
+            type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name"
+            autocomplete="nope" required="true">
+        <!-- <div class="error" *ngIf="form">*Name is required</div> -->
+        <button (click)="generate()">Generate</button>
+    </div>
+
     <div class="more-actions">
         <div class="action">
             <input type="checkbox" value="dryRun"><span class="small">Dry run</span>
