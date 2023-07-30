@@ -1,6 +1,16 @@
-<div style="margin-top: 20px; border: 1px solid black; width: 500px; height: 80%;">
+<div [formGroup]="form" style="margin-top: 20px; border: 1px solid black; width: 500px; height: 80%;">
+    <input type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name" autocomplete="nope">
+    <button (click)="generate()">Generate</button>
     <div class="more-actions">
-        <input type="checkbox" value="dryRun"><span>Dry run</span>
+        <div class="action">
+            <input type="checkbox" value="dryRun"><span class="small">Dry run</span>
+        </div>
+        <div class="action">
+            <input type="checkbox" value="dryRun"><span class="small">Route Module</span>
+        </div>
+        <div class="action">
+            <input type="checkbox" value="dryRun"><span class="small">CSS</span>
+        </div>
     </div>
-    <textarea [formControl]="code" [value]="cmd"></textarea>
+    <textarea formControlName="code"></textarea>
 </div>

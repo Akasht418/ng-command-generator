@@ -83,14 +83,32 @@ li{
 }
 
 textarea{
-  margin: 30px;
   background-color: black;
   color: white;
   width: 430px;
-  height: 130px;
+  height: 100px;
+  resize: none;
+  margin: 10px;
 }
 
 
 .clickable{
   cursor: pointer
+}
+
+.small{
+  font-size: 10px;
+}
+
+.contentField{
+  margin: 10px;
+}
+
+.more-actions{
+  display: flex;
+  margin: 0 10px 0 10px;
+}
+
+.action{
+  margin-right: 8px;
 }
