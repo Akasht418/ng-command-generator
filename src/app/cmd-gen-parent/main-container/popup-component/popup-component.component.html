@@ -1,0 +1,22 @@
+<div class="popup" [formGroup]="form">
+    <h5>Style</h5>
+    <div class="inputs">
+        <input type="text" formControlName="name">
+        <div class="popup-actions">
+            <div class="popup-action">
+                <input type="radio" value="css" formControlName="styleType"><span class="small">CSS</span>
+            </div>
+            <div class="popup-action">
+                <input type="radio" value="scss" formControlName="styleType"><span class="small">SCSS</span>
+            </div>
+            <div class="popup-action">
+                <input type="radio" value="less" formControlName="styleType"><span class="small">LESS</span>
+            </div>
+        </div>
+    </div>
+    <div class="popupButtons">
+        <button class="primaryButton" (click)="ok()">Ok</button>
+        <button class="secondaryButton" (click)="cancel()">Cancel</button>
+    </div>
+
+</div>

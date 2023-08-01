@@ -14,7 +14,7 @@
             <input type="checkbox" formControlName="routing" value="routing"><span class="small">Routing</span>
         </div>
         <div class="action">
-            <input type="checkbox" formControlName="css" value="css"><span class="small">CSS</span>
+            <input type="checkbox" formControlName="css" value="css" (click)="openDialog()"><span class="small">Style</span>
         </div>
     </div>
     <textarea #textarea formControlName="code" autocomplete="nope"></textarea>

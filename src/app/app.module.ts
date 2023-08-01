@@ -7,9 +7,12 @@ import { HeaderComponent } from './header/header.component';
 import { CmdGenParentComponent } from './cmd-gen-parent/cmd-gen-parent.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainContainerComponent } from './cmd-gen-parent/main-container/main-container.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CodeGenAreaComponent } from './cmd-gen-parent/main-container/code-gen-area/code-gen-area.component';
-
+import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { PopupComponent } from './cmd-gen-parent/main-container/popup-component/popup-component.component';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +20,17 @@ import { CodeGenAreaComponent } from './cmd-gen-parent/main-container/code-gen-a
     CmdGenParentComponent,
     FooterComponent,
     MainContainerComponent,
-    CodeGenAreaComponent
+    CodeGenAreaComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

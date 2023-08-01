@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html,
 body {
@@ -9,7 +10,7 @@ body {
 
 .logo {
   padding: 20px;
-  img{
+  img {
     margin-right: -15px;
   }
 }
@@ -46,7 +47,7 @@ p {
 .each-step {
   width: 100px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: left;
   margin: 0 50px 0 50px;
 }
@@ -62,12 +63,12 @@ footer {
   padding: 5px;
 }
 
-.main-content{
+.main-content {
   display: flex;
   justify-content: center;
 }
 
-.content{
+.content {
   border: 1px solid rgb(196, 193, 193);
   width: 800px;
   height: 250px;
@@ -76,13 +77,13 @@ footer {
   justify-content: space-evenly;
 }
 
-li{
+li {
   text-decoration: none;
   padding-bottom: 10px;
   color: rgb(101, 101, 244);
 }
 
-textarea{
+textarea {
   background-color: black;
   color: white;
   width: 430px;
@@ -91,32 +92,78 @@ textarea{
   margin: 10px;
 }
 
-
-.clickable{
-  cursor: pointer
+.clickable {
+  cursor: pointer;
 }
 
-.small{
+.small {
   font-size: 10px;
 }
 
-.contentField{
+.contentField {
   margin: 10px;
 }
 
-.more-actions{
+.more-actions {
   display: flex;
   margin: 0 10px 0 10px;
 }
 
-.action{
+.action {
   margin-right: 8px;
 }
 
-.error{
+.error {
   border-color: red;
 }
 
-.workInProgress{
+.workInProgress {
   float: right;
+}
+
+::ng-deep .cdk-overlay-pane {
+  align-items: center;
+}
+
+.primaryButton {
+  background-color: rgb(41, 129, 41);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 45%;
+  padding: 2px;
+}
+
+.secondaryButton {
+  background-color: rgb(169, 13, 13);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 45%;
+  padding: 2px;
+}
+
+.popupButtons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.popup-actions{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.popup-action{
+  margin-right: 4px;
+}
+
+input[type="checkbox"]{
+  margin-left: 0px;
+}
+input[type="radio"]{
+  margin-left: 0px;
 }

@@ -11,7 +11,7 @@ export class MainContainerComponent {
 
   @ViewChild('childForm') childForm!: CodeGenAreaComponent;
 
-  cmd = '';
+  cmd = 'ng new';
   selectType(type: string) {
     if (type == 'new') {
       this.cmd = 'ng new';
