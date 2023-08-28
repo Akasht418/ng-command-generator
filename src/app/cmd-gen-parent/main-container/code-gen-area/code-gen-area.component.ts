@@ -93,9 +93,7 @@ export class CodeGenAreaComponent implements OnInit {
   resetForm() {
     this.form.get('code')?.reset();
     this.form.get('name')?.reset();
-    this.form.get('checkBoxGroup.style')?.reset();
-    this.form.get('checkBoxGroup.routing')?.reset();
-    this.form.get('checkBoxGroup.dryRun')?.reset();
+    this.form.get('checkBoxGroup')?.reset();
   }
 
   get showError() {
