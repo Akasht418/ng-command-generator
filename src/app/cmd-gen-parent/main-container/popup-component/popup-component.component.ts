@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -16,7 +16,7 @@ export class PopupComponent {
   ) {
     this.form = this.fb.group({
       name: [],
-      styleType: ['css'],
+      styleType: ['style'],
     });
   }
 
@@ -25,11 +25,7 @@ export class PopupComponent {
   }
 
   ok() {
-    if (!this.showError) {
-      this.dialogRef.close(this.form.get('styleType')?.value);
-    } else {
-      window.alert('Name is required');
-    }
+    this.dialogRef.close(this.form.get('styleType')?.value);
   }
   cancel() {
     this.dialogRef.close(false);

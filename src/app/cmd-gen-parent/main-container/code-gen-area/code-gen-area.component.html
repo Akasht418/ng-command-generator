@@ -1,4 +1,4 @@
-<div [formGroup]="form" style="margin-top: 20px; border: 1px solid black; width: 500px; height: 80%;">
+<div [formGroup]="form" style="margin-top: 20px; border: 1px solid black; width: 550px; height: 80%;">
     <div>
         <input type="text" id="name" formControlName="name" class="contentField" placeholder="Enter the name"
             autocomplete="nope">
@@ -6,16 +6,18 @@
         <button (click)="generate()">Generate</button>
     </div>
 
-    <div class="more-actions">
-        <div class="action">
-            <input type="checkbox" formControlName="dryRun" value="dryRun"><span class="small">Dry run</span>
-        </div>
-        <div class="action">
-            <input type="checkbox" formControlName="routing" value="routing"><span class="small">Routing</span>
-        </div>
-        <div class="action">
-            <input type="checkbox" formControlName="css" value="css" (click)="openDialog()"><span class="small">Style</span>
+    <div class="more-actions" formGroupName="checkBoxGroup">
+        <div *ngFor="let i of list" class="action">
+            <div *ngIf="i.dialogBox && (i.enableFor).includes(type)">
+                <input type="checkbox" [formControlName]="i.code" [value]="i.message" (click)="openDialog()"><span class="small">{{i.name}}</span>
+            </div>
+            <div *ngIf="!i.dialogBox && (i.enableFor).includes(type)">
+                <input type="checkbox" [formControlName]="i.code" [value]="i.message"><span class="small">{{i.name}}</span>
+            </div>
         </div>
     </div>
+    <div class="textarea-class">
     <textarea #textarea formControlName="code" autocomplete="nope"></textarea>
+    <button class="copyButton">Copy</button>
+    </div>
 </div>
