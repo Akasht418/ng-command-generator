@@ -1,16 +1,11 @@
 <div class="popup" [formGroup]="form">
     <h5>Style</h5>
     <div class="inputs">
-<!--         <input type="text" formControlName="name"> -->
+        <!--         <input type="text" formControlName="name"> -->
         <div class="popup-actions">
-            <div class="popup-action">
-                <input type="radio" value="css" formControlName="styleType"><span class="small">CSS</span>
-            </div>
-            <div class="popup-action">
-                <input type="radio" value="scss" formControlName="styleType"><span class="small">SCSS</span>
-            </div>
-            <div class="popup-action">
-                <input type="radio" value="less" formControlName="styleType"><span class="small">LESS</span>
+            <div class="popup-action" *ngFor="let j of data.popupOptions">
+                <input type="radio" [value]="j" [formControlName]="data.popupControlName"><span
+                    class="small">{{j}}</span>
             </div>
         </div>
     </div>

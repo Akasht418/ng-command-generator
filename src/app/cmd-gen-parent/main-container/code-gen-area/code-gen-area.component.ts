@@ -12,7 +12,6 @@ import { PopupComponent } from '../popup-component/popup-component.component';
 import { CommonServiceService } from 'src/app/common-service.service';
 import { Clipboard } from '@angular/cdk/clipboard';
 
-
 @Component({
   selector: 'app-code-gen-area',
   templateUrl: './code-gen-area.component.html',
@@ -34,7 +33,9 @@ export class CodeGenAreaComponent implements OnInit {
         dryRun: [],
         routing: [],
         style: [],
+        styleValue: [],
         skipTests: [],
+        skipTestsValue: [],
         help: [],
         inlineStyle: [],
         inlineTemplate: [],
@@ -55,35 +56,42 @@ export class CodeGenAreaComponent implements OnInit {
   generate() {
     if (!this.showError) {
       let name = this.form.get('name')?.value;
-      /*       let fullCommand =
-        this.cmd +
-        ' ' +
-        name +
-        ' ' +
-        dryRun +
-        ' ' +
-        routing +
-        ' ' +
-        this.styleType; */
       this.fullCommand = this.cmd + ' ' + name + ' ';
 
       const checkboxGroup = this.form.get('checkBoxGroup') as FormGroup;
 
       Object.keys(checkboxGroup.controls).forEach((controlName) => {
         const control = checkboxGroup.get(controlName);
-        if (control && control.value === true) {
+        if (
+          control &&
+          typeof control.value === 'boolean' &&
+          !this.getDialogEnabled(controlName)
+        ) {
           this.fullCommand += ' ' + this.getMessage(controlName);
+        } else if (
+          control &&
+          control.value != null &&
+          typeof control.value === 'string' &&
+          this.getDialogEnabled(controlName)
+        ) {
+          this.fullCommand += ' ' + String(control.value);
         }
       });
       this.form.get('code')?.patchValue(this.fullCommand);
     } else {
       window.alert('Name is required');
-      this.form.get('checkBoxGroup.style')?.reset();
+      this.form.get('checkBoxGroup')?.reset();
     }
   }
 
   getMessage(type: any) {
     return this.commonService.actionList[type].message;
+  }
+
+  getDialogEnabled(type: any) {
+    return this.commonService.actionList[type.replace('Value', '')].dialogBox
+      ? true
+      : false;
   }
 
   copyCode() {
@@ -100,26 +108,25 @@ export class CodeGenAreaComponent implements OnInit {
     return this.form.get('name')?.value?.length > 0 ? false : true;
   }
 
-  openDialog() {
+  openDialog(data: any) {
     if (!this.showError) {
       if (
-        this.form.get('checkBoxGroup.style')?.value == false ||
-        this.form.get('checkBoxGroup.style')?.value == undefined
+        this.form.get('checkBoxGroup.' + data.code)?.value == false ||
+        this.form.get('checkBoxGroup.' + data.code)?.value == undefined
       ) {
         this.dialog
           .open(PopupComponent, {
-            data: {
-              animal: 'panda',
-            },
+            data: data,
           })
           .afterClosed()
           .subscribe((response) => {
             if (response) {
-              this.form.get('checkBoxGroup.style')?.patchValue(true);
-              this.styleType = '--style=' + response;
+              this.form.get('checkBoxGroup.' + data.code)?.patchValue(true);
+              this.form
+                .get('checkBoxGroup.' + data.code + 'Value')
+                ?.patchValue(data.message + '=' + response);
             } else {
-              this.form.get('checkBoxGroup.style')?.reset();
-              this.styleType = '';
+              this.form.get('checkBoxGroup.' + data.code)?.reset();
             }
           });
       } else {
@@ -127,7 +134,7 @@ export class CodeGenAreaComponent implements OnInit {
       }
     } else {
       window.alert('Name is required');
-      this.form.get('checkBoxGroup.style')?.patchValue(false);
+      this.form.get('checkBoxGroup.' + data.code)?.patchValue(false);
     }
   }
 }

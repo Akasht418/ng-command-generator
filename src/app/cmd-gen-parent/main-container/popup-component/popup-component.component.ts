@@ -16,7 +16,8 @@ export class PopupComponent {
   ) {
     this.form = this.fb.group({
       name: [],
-      styleType: ['style'],
+      style: ['css'],
+      test: ['less'],
     });
   }
 
@@ -25,7 +26,7 @@ export class PopupComponent {
   }
 
   ok() {
-    this.dialogRef.close(this.form.get('styleType')?.value);
+    this.dialogRef.close(this.form.get(this.data.popupControlName)?.value);
   }
   cancel() {
     this.dialogRef.close(false);

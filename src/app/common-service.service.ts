@@ -45,14 +45,16 @@ export class CommonServiceService {
       code: 'style',
       dialogBox: true,
       enableFor: ['lib','pipe'],
-      message: '--style'
+      message: '--style',
+      popupOptions: ['css','scss','less'],
+      popupControlName: 'style'
     },
     skipTests: {
       name: 'Skip Tests',
       code: 'skipTests',
       dialogBox: false,
-      enableFor: ['new','component'],
-      message: '--skip-tests'
+      enableFor: ['new','component', 'lib'],
+      message: '--skip-tests',
     },
     help: {
       name: 'Help',

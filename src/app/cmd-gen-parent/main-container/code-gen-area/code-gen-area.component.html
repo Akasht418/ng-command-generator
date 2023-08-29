@@ -9,7 +9,7 @@
     <div class="more-actions" formGroupName="checkBoxGroup">
         <div *ngFor="let i of list" class="action">
             <div *ngIf="i.dialogBox && (i.enableFor).includes(type)">
-                <input type="checkbox" [formControlName]="i.code" [value]="i.message" (click)="openDialog()"><span class="small">{{i.name}}</span>
+                <input type="checkbox" [formControlName]="i.code" [value]="i.message" (click)="openDialog(i)"><span class="small">{{i.name}}</span>
             </div>
             <div *ngIf="!i.dialogBox && (i.enableFor).includes(type)">
                 <input type="checkbox" [formControlName]="i.code" [value]="i.message"><span class="small">{{i.name}}</span>
