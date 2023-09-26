@@ -67,7 +67,9 @@ export class CodeGenAreaComponent implements OnInit {
           typeof control.value === 'boolean' &&
           !this.getDialogEnabled(controlName)
         ) {
-          this.fullCommand += ' ' + this.getMessage(controlName);
+          if (control.value) {
+            this.fullCommand += ' ' + this.getMessage(controlName);
+          }
         } else if (
           control &&
           control.value != null &&
@@ -95,10 +97,14 @@ export class CodeGenAreaComponent implements OnInit {
   }
 
   copyCode() {
-    this.clipboard.copy(this.fullCommand);
+    if (this.fullCommand.length > 0) {
+      this.clipboard.copy(this.fullCommand);
+      alert('Code copied!');
+    }
   }
 
   resetForm() {
+    this.fullCommand = '';
     this.form.get('code')?.reset();
     this.form.get('name')?.reset();
     this.form.get('checkBoxGroup')?.reset();
@@ -130,7 +136,11 @@ export class CodeGenAreaComponent implements OnInit {
             }
           });
       } else {
-        this.resetForm();
+        // this.resetForm();
+        this.form.get('checkBoxGroup.' + data.code)?.reset();
+        this.form
+          .get('checkBoxGroup.' + data.code + 'Value')
+          ?.patchValue('');
       }
     } else {
       window.alert('Name is required');
