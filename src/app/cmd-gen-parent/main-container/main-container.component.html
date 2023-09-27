@@ -3,16 +3,16 @@
     <h6>Select one:</h6>
     <ul class="nav flex-column">
       <li class="nav-item clickable" (click)="selectType('new')">
-        <div [ngStyle]="{'background-color': selectedType == 'new' ? 'yellow' : 'white' }">new project</div>
+        <div [ngStyle]="{'background-color': selectedType == 'new' ? 'yellow' : 'transparent' }">new project</div>
       </li>
       <li class="nav-item clickable" (click)="selectType('component')">
-        <div [ngStyle]="{'background-color': selectedType == 'component' ? 'yellow' : 'white' }">component</div>
+        <div [ngStyle]="{'background-color': selectedType == 'component' ? 'yellow' : 'transparent' }">component</div>
       </li>
       <li class="nav-item clickable" (click)="selectType('pipe')">
-        <div [ngStyle]="{'background-color': selectedType == 'pipe' ? 'yellow' : 'white' }">pipe</div>
+        <div [ngStyle]="{'background-color': selectedType == 'pipe' ? 'yellow' : 'transparent' }">pipe</div>
       </li>
       <li class="nav-item clickable" (click)="selectType('lib')">
-        <div [ngStyle]="{'background-color': selectedType == 'lib' ? 'yellow' : 'white' }">library</div>
+        <div [ngStyle]="{'background-color': selectedType == 'lib' ? 'yellow' : 'transparent' }">library</div>
       </li>
     </ul>
   </div>
