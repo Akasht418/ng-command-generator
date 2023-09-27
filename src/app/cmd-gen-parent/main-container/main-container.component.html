@@ -1,19 +1,20 @@
 <div class="content">
-    <div class="side-menu">
-        <ul class="nav flex-column">
-            <li class="nav-item clickable" (click)="selectType('new')">
-              new project
-            </li>
-            <li class="nav-item clickable" (click)="selectType('component')">
-              component
-            </li>
-            <li class="nav-item clickable" (click)="selectType('pipe')">
-              pipe
-            </li>
-            <li class="nav-item clickable" (click)="selectType('lib')">
-              library
-            </li>
-          </ul>
-    </div>
-    <app-code-gen-area [type]="type" [cmd]="cmd" #childForm></app-code-gen-area>
+  <div class="side-menu">
+    <h6>Select one:</h6>
+    <ul class="nav flex-column">
+      <li class="nav-item clickable" (click)="selectType('new')">
+        <div [ngStyle]="{'background-color': selectedType == 'new' ? 'yellow' : 'white' }">new project</div>
+      </li>
+      <li class="nav-item clickable" (click)="selectType('component')">
+        <div [ngStyle]="{'background-color': selectedType == 'component' ? 'yellow' : 'white' }">component</div>
+      </li>
+      <li class="nav-item clickable" (click)="selectType('pipe')">
+        <div [ngStyle]="{'background-color': selectedType == 'pipe' ? 'yellow' : 'white' }">pipe</div>
+      </li>
+      <li class="nav-item clickable" (click)="selectType('lib')">
+        <div [ngStyle]="{'background-color': selectedType == 'lib' ? 'yellow' : 'white' }">library</div>
+      </li>
+    </ul>
+  </div>
+  <app-code-gen-area [type]="type" [cmd]="cmd" #childForm></app-code-gen-area>
 </div>

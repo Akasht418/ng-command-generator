@@ -21,6 +21,9 @@ export class MainContainerComponent {
     this.childForm.resetForm();
     this.type = type;
     this.cmd = this.commonService.getActionData(type);
+    this.selectedType = type;
   }
+
+  selectedType = 'new';
   
 }
